@@ -56,16 +56,32 @@ c.right =f;
 
 // console.log(dfs(a));
 
-const breadthFirstTraversal = (root)=> {
+// const breadthFirstTraversal = (root)=> {
+//     // no recursive way here , only iterative 
+
+//     const queue = [root]
+//     while(queue.length > 0) {
+//         const current = queue.shift()
+//         console.log(current.val)
+//         if(current.left) queue.push(current.left)
+//         if(current.right) queue.push(current.right)
+//     }
+// }
+
+// console.log(breadthFirstTraversal(a))
+
+
+ const breadthFirstTraversal = (root, target)=> {
     // no recursive way here , only iterative 
 
     const queue = [root]
     while(queue.length > 0) {
         const current = queue.shift()
-        console.log(current.val)
+      if( current.val === target) return true
         if(current.left) queue.push(current.left)
         if(current.right) queue.push(current.right)
     }
+    return false;
 }
 
-console.log(breadthFirstTraversal(a))
+console.log(breadthFirstTraversal(a, "h"))
