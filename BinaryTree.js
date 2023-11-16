@@ -151,3 +151,14 @@ var mergeTrees = function(t1, t2) {
     root.right = mergeTrees(t1 && t1.right, t2 && t2.right);
     return root;
 }
+
+
+//Evaluate boolean binary tree 
+var evaluateTree = function(root) {
+    // recursive dfs 
+    if(!root) return false
+    if(!root.left && !root.right && root.val === 1) return true;  
+    if(!root.left && !root.right && root.val === 0) return false; 
+    if(root.val ===2) return (evaluateTree(root.left) || evaluateTree(root.right))
+    if(root.val = 3) return (evaluateTree(root.left) && evaluateTree(root.right))
+};
