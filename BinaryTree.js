@@ -162,3 +162,25 @@ var evaluateTree = function(root) {
     if(root.val ===2) return (evaluateTree(root.left) || evaluateTree(root.right))
     if(root.val = 3) return (evaluateTree(root.left) && evaluateTree(root.right))
 };
+
+
+var invertTree = function(root) {
+    if(!root) return null
+/// bfs iterative way 
+const queue = [root]
+while ( queue.length > 0){
+
+const current = queue.shift();
+//swap nodes 
+const temp = current.left;
+current.left= current.right;
+current.right= temp;
+if(current.left) {
+    queue.push(current.left)
+}
+ if(current.right) {
+    queue.push(current.right)
+}
+}
+return root
+};
