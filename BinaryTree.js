@@ -184,3 +184,22 @@ if(current.left) {
 }
 return root
 };
+
+function sumRootToLeaf(root) {
+    function dfs(node, val) {
+        if (node === null) return 0;
+
+        // Update the current value
+        val = (val << 1) | node.val;
+
+        // If it's a leaf node, return the current value
+        if (node.left === null && node.right === null) {
+            return val;
+        }
+
+        // Continue the DFS on left and right subtrees
+        return dfs(node.left, val) + dfs(node.right, val);
+    }
+
+    return dfs(root, 0);
+}
