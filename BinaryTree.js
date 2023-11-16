@@ -71,17 +71,24 @@ c.right =f;
 // console.log(breadthFirstTraversal(a))
 
 
- const breadthFirstTraversal = (root, target)=> {
-    // no recursive way here , only iterative 
+//  const breadthFirstTraversal = (root, target)=> {
+//     // no recursive way here , only iterative 
 
-    const queue = [root]
-    while(queue.length > 0) {
-        const current = queue.shift()
-      if( current.val === target) return true
-        if(current.left) queue.push(current.left)
-        if(current.right) queue.push(current.right)
-    }
-    return false;
+//     const queue = [root]
+//     while(queue.length > 0) {
+//         const current = queue.shift()
+//       if( current.val === target) return true
+//         if(current.left) queue.push(current.left)
+//         if(current.right) queue.push(current.right)
+//     }
+//     return false;
+// }
+
+// console.log(breadthFirstTraversal(a, "h"))
+
+const dfs = (root, target )=> {
+    if (root ===null) return false;
+    if(root.val===target) return true
+  return  dfs(root.left, target) || dfs(root.right, target)
 }
-
-console.log(breadthFirstTraversal(a, "h"))
+console.log(dfs(a, "b"))
