@@ -86,9 +86,35 @@ c.right =f;
 
 // console.log(breadthFirstTraversal(a, "h"))
 
-const dfs = (root, target )=> {
-    if (root ===null) return false;
-    if(root.val===target) return true
-  return  dfs(root.left, target) || dfs(root.right, target)
+// const dfs = (root, target )=> {
+//     if (root ===null) return false;
+//     if(root.val===target) return true
+//   return  dfs(root.left, target) || dfs(root.right, target)
+// }
+// console.log(dfs(a, ""))
+
+// Find target from Clone
+function getTargetCopy(original, cloned, target) {
+    let stackOriginal = [original];
+    let stackCloned = [cloned];
+
+    while (stackOriginal.length > 0) {
+        let nodeOriginal = stackOriginal.pop();
+        let nodeCloned = stackCloned.pop();
+
+        if (nodeOriginal === target) {
+            return nodeCloned;
+        }
+
+        if (nodeOriginal.right) {
+            stackOriginal.push(nodeOriginal.right);
+            stackCloned.push(nodeCloned.right);
+        }
+        if (nodeOriginal.left) {
+            stackOriginal.push(nodeOriginal.left);
+            stackCloned.push(nodeCloned.left);
+        }
+    }
+
+    return null;
 }
-console.log(dfs(a, "b"))
