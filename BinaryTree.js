@@ -44,15 +44,28 @@ c.right =f;
 
 // recursive way 
 
-const  dfs =(root) => {
-    if(root ===null) return  [];
-    const leftValues = dfs(root.left)
-    const rigthValues = dfs(root.right)
+// const  dfs =(root) => {
+//     if(root ===null) return  [];
+//     const leftValues = dfs(root.left)
+//     const rigthValues = dfs(root.right)
    
 
-    return [root.val,  ...leftValues, ...rigthValues,]
+//     return [root.val,  ...leftValues, ]
+// }
+
+
+// console.log(dfs(a));
+
+const breadthFirstTraversal = (root)=> {
+    // no recursive way here , only iterative 
+
+    const queue = [root]
+    while(queue.length > 0) {
+        const current = queue.shift()
+        console.log(current.val)
+        if(current.left) queue.push(current.left)
+        if(current.right) queue.push(current.right)
+    }
 }
 
-
-console.log(dfs(a));
-
+console.log(breadthFirstTraversal(a))
