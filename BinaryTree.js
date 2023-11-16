@@ -118,3 +118,26 @@ function getTargetCopy(original, cloned, target) {
 
     return null;
 }
+
+
+//2236 Root equals sum of children
+function checkTree(root) {
+    // If the root is null, the tree is empty, and the condition is trivially met.
+    if (!root) {
+        return true;
+    }
+
+    // Check the sum for the root node
+    if (root.left || root.right) {
+        let sum = 0;
+        if (root.left) sum += root.left.val;
+        if (root.right) sum += root.right.val;
+
+        if (root.val !== sum) {
+            return false;
+        }
+    }
+
+    // Recursively check for the left and right subtrees
+    return checkTree(root.left) && checkTree(root.right);
+}
