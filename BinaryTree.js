@@ -31,15 +31,28 @@ c.right =f;
 // Time O(n)
 //Space O(n) Iterative version 
 
-const depthFirstSearch = (root)  => {
-    const stack = [root];
-    while(stack.length >0){
-        const current = stack.pop();
-        console.log(current.val);
-        if(current.right) stack.push(current.right)
-        if(current.left) stack.push(current.left)
+// const depthFirstSearch = (root)  => {
+//     const stack = [root];
+//     while(stack.length >0){
+//         const current = stack.pop();
+//         console.log(current.val);
+//         if(current.right) stack.push(current.right)
+//         if(current.left) stack.push(current.left)
 
-    }
+//     }
+// }
+
+// recursive way 
+
+const  dfs =(root) => {
+    if(root ===null) return  [];
+    const leftValues = dfs(root.left)
+    const rigthValues = dfs(root.right)
+   
+
+    return [root.val,  ...leftValues, ...rigthValues,]
 }
 
-console.log(depthFirstSearch(a));
+
+console.log(dfs(a));
+
