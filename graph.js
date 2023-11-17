@@ -18,7 +18,7 @@ const dfs = (graph, source ) => {
         }
     }
 }
-dfs(graph, "a")
+// dfs(graph, "a")
 
 
 /// dfs recursive way 
@@ -29,4 +29,17 @@ const dfs1 =( graph, source)=> {
     }
 }
 
-dfs1(graph, "a")  
+// dfs1(graph, "a")  
+
+
+const bfs = (graph, source) => {
+    let queue = [source];
+    while(queue.length > 0 ){
+        let current= queue.shift();
+        console.log(current)
+        for(let n of graph[current]){
+            queue.push(n)
+        }
+    }
+}
+bfs(graph, "a")
