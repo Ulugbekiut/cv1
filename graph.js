@@ -19,3 +19,14 @@ const dfs = (graph, source ) => {
     }
 }
 dfs(graph, "a")
+
+
+/// dfs recursive way 
+const dfs1 =( graph, source)=> {
+    console.log(source);
+    for(let neighbor of graph[source]){
+        dfs1(graph, neighbor)
+    }
+}
+
+dfs1(graph, "a")  
