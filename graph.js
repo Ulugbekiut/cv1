@@ -42,4 +42,18 @@ const bfs = (graph, source) => {
         }
     }
 }
-bfs(graph, "a")
+// bfs(graph, "a")
+
+
+function hasPath (graph, src, dest) {
+    if (src === dest) {
+      console.log(  "has path is ", true)
+    }
+    for(let neighbor of graph[src]){
+        if( hasPath(graph, neighbor, dest) === true) {
+            return true
+        }
+    }
+  console.log(false)
+}
+hasPath(graph, "b", "e")
